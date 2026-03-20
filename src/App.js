@@ -6,11 +6,11 @@ export default function App() {
   const [showVideo, setShowVideo] = useState(false);
 
   const videos = [
-    process.env.PUBLIC_URL + "/1.mp4",
-    process.env.PUBLIC_URL + "/2.mp4",
-    process.env.PUBLIC_URL + "/3.mp4",
-    process.env.PUBLIC_URL + "/4.mp4",
-    process.env.PUBLIC_URL + "/5.mp4",
+ "/1.mp4",
+ "/2.mp4",
+  "/3.mp4",
+   "/4.mp4",
+   "/5.mp4"
   ];
 
   const handleSurprise = () => {
