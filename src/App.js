@@ -74,10 +74,10 @@ export default function App() {
           >
             <h1 style={{
               fontSize: "clamp(2rem, 5vw, 3rem)",
-              fontWeight: 900,
+              fontWeight: 700,
               color: "#047857",
             }}>
-              🌙 Eid Mubarak ✨
+             Eid Mubarak 🌙
             </h1>
 
             <p style={{
