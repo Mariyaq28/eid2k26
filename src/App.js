@@ -7,10 +7,12 @@ export default function App() {
   const [showVideo, setShowVideo] = useState(false);
 
   const videos = [
-    "/1.MP4",
-    "/2.MP4",
-    "/3.MP4",
-    "/4.MP4"
+    "/1.mp4",
+    "/2.mp4",
+    "/3.mp4,
+    "/4.mp4,
+    "/5.mp4"
+    
   ];
 
   const handleSurprise = () => {
