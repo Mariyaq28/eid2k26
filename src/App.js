@@ -1,7 +1,8 @@
-import { useState } from "react";
+// App.js
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function EidSurpriseApp() {
+export default function App() {
   const [videoUrl, setVideoUrl] = useState("");
   const [showVideo, setShowVideo] = useState(false);
 
@@ -9,9 +10,7 @@ export default function EidSurpriseApp() {
     "/1.MP4",
     "/2.MP4",
     "/3.MP4",
-    "/4.MP4",
-    "/5.MP4",
-    "/6.MP4"
+    "/4.MP4"
   ];
 
   const handleSurprise = () => {
@@ -21,57 +20,91 @@ export default function EidSurpriseApp() {
   };
 
   return (
-    <div style={{ 
-      minHeight: "100vh", 
-      display: "flex", 
-      justifyContent: "center", 
-      alignItems: "center",
-      background: "linear-gradient(to bottom right, #10B981, #A7F3D0)", // Green & Gold feel
-      padding: "20px",
-      overflow: "hidden",
-      position: "relative"
-    }}>
-     
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "linear-gradient(to bottom right, #10B981, #A7F3D0)",
+        padding: "20px",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      {/* Pattern overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `
+            radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+            radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)
+          `,
+          backgroundPosition: "0 0, 10px 10px",
+          backgroundSize: "20px 20px",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
 
-      <div style={{ maxWidth: "500px", width: "100%" }}>
+      {/* Main content */}
+      <div style={{ position: "relative", zIndex: 1, width: "100%", display: "flex", justifyContent: "center" }}>
         {!showVideo && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             style={{
-              backgroundColor: "rgba(255,255,255,0.9)",
-              padding: "30px",
+              backgroundColor: "rgba(255,255,255,0.95)",
+              padding: "2rem",
               borderRadius: "20px",
               boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
               textAlign: "center",
               display: "flex",
               flexDirection: "column",
-              gap: "20px",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+              gap: "1.5rem",
+              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              width: "90%",
+              maxWidth: "500px",
             }}
           >
-            <h1 style={{ fontSize: "45px", fontWeight: "900", color: "#047857" }}>
+            <h1
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3rem)",
+                fontWeight: 900,
+                color: "#047857",
+              }}
+            >
               🌙 Eid Mubarak ✨
             </h1>
 
-            <p style={{ color: "#065F46", fontSize: "20px", lineHeight: "1.6", fontWeight: 600 }}>
+            <p
+              style={{
+                color: "#065F46",
+                fontSize: "clamp(1rem, 3vw, 1.25rem)",
+                lineHeight: 1.6,
+                fontWeight: 600,
+              }}
+            >
               Wishing you and your family a joyous and blessed Eid!<br />
-              May all your prayers be accepted and your heart be filled with joy on this beautiful occasion of Eid.
-              Ameen.
+              May all your prayers be accepted and your heart be filled with joy on this beautiful occasion of Eid. Ameen.
             </p>
 
-            <button 
+            <button
               onClick={handleSurprise}
               style={{
-                padding: "12px 20px",
-                fontSize: "18px",
+                padding: "0.75rem 1.5rem",
+                fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
                 fontWeight: "bold",
                 borderRadius: "10px",
                 border: "none",
-                backgroundColor: "#FBBF24", // Gold button
-                color: "#047857", // Dark green text
-                cursor: "pointer"
+                backgroundColor: "#FBBF24",
+                color: "#047857",
+                cursor: "pointer",
               }}
             >
               🎁 Surprise
@@ -84,13 +117,22 @@ export default function EidSurpriseApp() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            style={{ marginTop: "20px" }}
+            style={{
+              marginTop: "20px",
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+            }}
           >
-            <video 
-              src={videoUrl} 
-              controls 
-              autoPlay 
-              style={{ width: "100%", borderRadius: "15px" }}
+            <video
+              src={videoUrl}
+              controls
+              autoPlay
+              style={{
+                width: "90%",
+                maxWidth: "500px",
+                borderRadius: "15px",
+              }}
             />
           </motion.div>
         )}
